@@ -1,20 +1,17 @@
 import { Component } from '@angular/core';
-import { NavbarComponent } from "../../ui/navbar/navbar.component";
-import { CardComponent } from "../../ui/card/card.component";
+import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../api.service';
 
 @Component({
-  selector: 'app-states',
-  imports: [NavbarComponent, CardComponent],
-  templateUrl: './states.component.html',
-  styleUrl: './states.component.scss'
+  selector: 'app-single-state',
+  imports: [],
+  templateUrl: './single-state.component.html',
+  styleUrl: './single-state.component.scss'
 })
-export class StatesComponent {
-  
-constructor(public api:ApiService)
-{
-  
-}
+export class SingleStateComponent {
+  constructor(private activated:ActivatedRoute,private api:ApiService){
+
+  }
 
   states =
   [
@@ -188,4 +185,12 @@ constructor(public api:ApiService)
     }
 
   ]
+
+  data:any
+
+  ngOnInit(){
+    let id=this.activated.snapshot.paramMap.get('id')
+    //console.log(id);
+    this.data=this.api.getStateById(id);
+  }
 }

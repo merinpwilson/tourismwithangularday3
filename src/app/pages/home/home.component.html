@@ -1,5 +1,5 @@
 
-<h1 style="color: black;text-align: center;font-family: Arial, Helvetica, sans-serif;">INDIAN TOURISM</h1>
+<h1 style="color: rgb(173, 12, 12);text-align: center;font-family: Arial, Helvetica, sans-serif; text-shadow: 2px 2px 0px #8e8181, 4px 4px 0px rgba(252, 214, 214, 0.8), 6px 6px 5px rgba(244, 222, 222, 0.5);">INDIAN TOURISM</h1>
 <app-carousal></app-carousal>
 <p>Indian tourism is renowned for its diversity, offering experiences that range from natural wonders to rich cultural heritage. Here's a brief description:
 
@@ -9,3 +9,12 @@
     
     India's festivals, cuisine, and traditional art forms further enrich the travel experience. From bustling metropolises like Mumbai and Delhi to tranquil villages, India is a mosaic of contrasts that leaves a lasting impression on visitors.
     </p>
+    <owl-carousel-o [options]="customOptions">
+
+        <ng-container *ngFor="let slide of cimages">
+          <ng-template carouselSlide [id]="slide.id.toString()">
+            <img [src]="slide.src" [alt]="slide.alt" [title]="">
+          </ng-template>
+        </ng-container>
+    
+      </owl-carousel-o>

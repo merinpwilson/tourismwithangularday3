@@ -1,21 +1,9 @@
-import { Component } from '@angular/core';
-import { NavbarComponent } from "../../ui/navbar/navbar.component";
-import { CardComponent } from "../../ui/card/card.component";
-import { ApiService } from '../../api.service';
+import { Injectable } from '@angular/core';
 
-@Component({
-  selector: 'app-states',
-  imports: [NavbarComponent, CardComponent],
-  templateUrl: './states.component.html',
-  styleUrl: './states.component.scss'
+@Injectable({
+  providedIn: 'root'
 })
-export class StatesComponent {
-  
-constructor(public api:ApiService)
-{
-  
-}
-
+export class ApiService {
   states =
   [
     {
@@ -188,4 +176,14 @@ constructor(public api:ApiService)
     }
 
   ]
+
+
+  constructor() { }
+    getStates(){
+      return this.states;
+    }
+    getStateById(id:any){
+
+      return this.states.find(state=>state.id==id)
+    }
 }
