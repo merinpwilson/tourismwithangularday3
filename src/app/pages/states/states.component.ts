@@ -5,7 +5,7 @@ import { ApiService } from '../../api.service';
 
 @Component({
   selector: 'app-states',
-  imports: [NavbarComponent, CardComponent],
+  imports: [ CardComponent],
   templateUrl: './states.component.html',
   styleUrl: './states.component.scss'
 })
